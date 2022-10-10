@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      appartment: {
+      apartment: {
         allowNull: false,
         type: Sequelize.STRING
       },

@@ -12,8 +12,7 @@ class BrandController {
     }
   }
   static async create(req, res) {
-    const { name } = req.body;
-    const data = { name };
+    const data = req.body;
     try {
       const newBrand = await Brand.create(data);
       res.status(200).send(newBrand);
@@ -31,7 +30,7 @@ class BrandController {
   }
   static async getAll(req, res) {
     try {
-      const brands = await Brand.findAll();
+      const brands = await Brand.findAll({ attributes: ['id', 'name'] });
       res.status(200).json(brands);
     } catch (error) {
       res.status(404).send('Ha ocurrido un error');
