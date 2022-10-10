@@ -6,8 +6,15 @@ const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
+//REQUIRE ROUTES
+const brandRouter = require('./routes/brand');
+
 const app = express();
 app.use(cors());
+app.use(express.json());
+
+//ROUTES
+app.use('/brands', brandRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
