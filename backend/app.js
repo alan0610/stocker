@@ -6,8 +6,29 @@ const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
+//REQUIRE ROUTES
+const brandRouter = require('./routes/brand');
+const clothingRouter = require('./routes/clothing');
+const productRouter = require('./routes/product');
+const saleRouter = require('./routes/sale');
+const saleDetailRouter = require('./routes/saleDetail');
+const stockRouter = require('./routes/stock');
+const typeRouter = require('./routes/type');
+const userRouter = require('./routes/user');
+
 const app = express();
 app.use(cors());
+app.use(express.json());
+
+//ROUTES
+app.use('/brands', brandRouter);
+app.use('/clothing', clothingRouter);
+app.use('/products', productRouter);
+app.use('/sales', saleRouter);
+app.use('/saleDetails', saleDetailRouter);
+app.use('/stock', stockRouter);
+app.use('/types', typeRouter);
+app.use('/users', userRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

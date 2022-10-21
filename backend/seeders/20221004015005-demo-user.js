@@ -10,7 +10,7 @@ module.exports = {
           email: 'johndue@gmail.com',
           dateOfBirth: new Date('1989-05-06'),
           address: 'Calle Buenavista 1234',
-          appartment: '2B',
+          apartment: '2B',
           password: '1234',
           createdAt: new Date(),
           updatedAt: new Date()
