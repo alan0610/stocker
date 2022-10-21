@@ -6,17 +6,7 @@ const Validator = require('../middlewares/validator');
 
 router.get('/', UserController.getAllUsers);
 router.delete('/:id', UserController.deleteUser);
-router.patch(
-  '/:id',
-  check('fullName', 'fullName is required').notEmpty(),
-  check('email', 'invalid email').notEmpty().isEmail(),
-  check('dateOfBirth', 'dateOfBirth is required').notEmpty(),
-  check('password', 'password is required').notEmpty(),
-  check('address', 'address is required').notEmpty(),
-  check('passsword', 'password is required').notEmpty(),
-  Validator.validateField,
-  UserController.updateUser
-);
+router.put('/:id', Validator.validateField, UserController.updateUser);
 
 router.post(
   '/register',
