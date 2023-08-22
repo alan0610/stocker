@@ -1,5 +1,5 @@
 const JwtUtils = require('../utils/jwtUtils');
-const UserController = require('../controllers/userController');
+const UserController = require('../controllers/usersController');
 
 class RoleValidator {
   static async isAdmin(req, res, next) {

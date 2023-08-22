@@ -4,7 +4,7 @@ const { body } = require('express-validator');
 const Validator = require('../middlewares/validator');
 
 const ProductController = require('../controllers/productsController');
-//const RoleValidator = require('../middlewares/roleValidator');
+const RoleValidator = require('../middlewares/roleValidator');
 
 router.get('/', ProductController.getAll);
 
@@ -18,15 +18,15 @@ router.post(
   body('color', 'color required').notEmpty(),
   body('stock', 'stock required').notEmpty().isInt(),
   Validator.validateField,
-  //RoleValidator.isAdmin,
+  RoleValidator.isAdmin,
   ProductController.create
 );
 
-router.get('/:id', /*RoleValidator.isAdmin,*/ ProductController.getById);
-router.delete('/:id', /*RoleValidator.isAdmin,*/ ProductController.delete);
+router.get('/:id', RoleValidator.isAdmin, ProductController.getById);
+router.delete('/:id', RoleValidator.isAdmin, ProductController.delete);
 router.put(
   '/:id',
-  //RoleValidator.isAdmin,
+  RoleValidator.isAdmin,
   body('title', 'title required').notEmpty(),
   body('description', 'description required').notEmpty(),
   body('categoryId', 'categoryId required').notEmpty(),

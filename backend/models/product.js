@@ -11,14 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       description: DataTypes.STRING,
-      categoryId: {
-        field: 'category_id',
-        type: DataTypes.INTEGER
-      },
-      brandId: {
-        field: 'brand_id',
-        type: DataTypes.INTEGER
-      },
+      categoryId: DataTypes.INTEGER,
+      brandId: DataTypes.INTEGER,
       size: DataTypes.STRING,
       color: DataTypes.STRING,
       stock: DataTypes.INTEGER,

@@ -1,5 +1,5 @@
 const { JWTAuthenticationError, UserExistsError } = require('../utils/error');
-const UserController = require('../controllers/userController');
+const UserController = require('../controllers/usersController');
 const JwtUtils = require('../utils/jwtUtils');
 
 class Ownership {

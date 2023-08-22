@@ -8,6 +8,8 @@ require('dotenv').config();
 const productRouter = require('./routes/products')
 const brandRouter = require('./routes/brands')
 const categoryRouter = require('./routes/categories')
+const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
 
 const app = express();
 app.use(cors());
@@ -25,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/products', productRouter);
 app.use('/brands', brandRouter);
 app.use('/categories', categoryRouter);
+app.use('/auth', authRouter);
+app.use('/users', usersRouter);
 
 app.listen(3030, ()=>{ 
   console.log("El servidor STOCKER corriendo en: http://localhost:3030/");

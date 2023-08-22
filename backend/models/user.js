@@ -12,10 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       lastName: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
-      roleId: {
-        field: 'role_id',
-        type: DataTypes.INTEGER
-      },
+      roleId: DataTypes.INTEGER
     },
     {
       sequelize,
