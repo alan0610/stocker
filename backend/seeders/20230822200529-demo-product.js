@@ -14,6 +14,8 @@ module.exports = {
           size: "30",
           color: "Azul",
           stock: 10,
+          price: 30000,
+          image: 'jean-505.jpg',
           createdAt: new Date(),
           updatedAt: new Date()
         },

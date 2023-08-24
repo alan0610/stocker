@@ -22,7 +22,7 @@ router.post(
   ProductController.create
 );
 
-router.get('/:id', RoleValidator.isAdmin, ProductController.getById);
+router.get('/:id', /*RoleValidator.isAdmin,*/ ProductController.getById);
 router.delete('/:id', RoleValidator.isAdmin, ProductController.delete);
 router.put(
   '/:id',
