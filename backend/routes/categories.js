@@ -7,6 +7,7 @@ const CategoriesController = require("../controllers/categoryController");
 const RoleValidator = require('../middlewares/roleValidator');
 
 router.get("/", CategoriesController.getAll);
+router.get("/:id/products", CategoriesController.getProductsByCategory)
 
 router.post(
   "/",

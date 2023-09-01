@@ -7,7 +7,7 @@ class ProductsController {
         if(products) {
             res.status(200).json(products);
         } else {
-            res.status(404).send({ msg: "No hay products" });
+            res.status(404).send({ msg: "There is no products" });
         }
       } catch (error) {
         res.status(500).send({ msg: 'Internal Server error' });

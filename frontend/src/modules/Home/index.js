@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../../components/Hero";
-import Products from "../../components/Products";
-import FeatureCard from "../../components/FeaturesCard";
+import Products from "../../components/ProductCard";
 import Stats from "../../components/StatCard";
+import Categories from "../../components/Categories";
 
 const Home = () => {
 
@@ -15,11 +15,12 @@ const Home = () => {
       setProducts(data)
     };
     fetchProducts()
-  });
+  },[]);
 
   return (
     <>
       <Hero />
+      <Categories />
       <div className="flex flex-col text-center w-full mt-20">
         <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
           Products
@@ -34,8 +35,6 @@ const Home = () => {
         :
         <div>Loading...</div>
       }
-      <Products />
-      <FeatureCard />
       <Stats />
     </>
   );

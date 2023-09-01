@@ -1,5 +1,4 @@
 const models = require("../models");
-
 class CategoriesController {
   static async getAll(req, res) {
     try {
@@ -65,11 +64,32 @@ class CategoriesController {
       const { id } = req.params;
       const deleteCategory = await models.Category.destroy({ where: { id } });
       if (deleteCategory) {
-        return res.status(200).send({ msg: "The category has been eliminated" });
+        return res
+          .status(200)
+          .send({ msg: "The category has been eliminated" });
       }
       return res.status(404).json({ msg: "This category doesn't exist" });
     } catch (error) {
       res.status(500).json({ msg: "An error has occurred" });
+    }
+  }
+
+  static async getProductsByCategory(req, res) {
+    const categoryId = req.params.id
+    let category;
+    try {
+      category = await models.Category.findByPk(categoryId);
+    } catch (error) {
+      console.error(error)
+      return res.status(500).json({ msg: "An error has occurred" });
+    }
+    if (category) {
+      const products = await models.Product.findAll({
+        where: { categoryId: categoryId }
+      });
+      res.json(products);
+    } else {
+      return res.status(404).json({ msg: "Category not found" });
     }
   }
 }
